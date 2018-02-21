@@ -6,7 +6,7 @@ class Form extends React.Component {
     super(props);
     this.state = {
       username: '',
-      emailAddress: '',
+      emailAddress:'',
       title: '',
       description: '',
       address: '',
@@ -18,6 +18,7 @@ class Form extends React.Component {
 
     this.savePost = this.savePost.bind(this);
     this.clearFields = this.clearFields.bind(this);
+    this.handleUsername = this.handleUsername.bind(this);
     this.handleEmail = this.handleEmail.bind(this);
     this.handleTitle = this.handleTitle.bind(this);
     this.handleDescription = this.handleDescription.bind(this);
@@ -44,7 +45,8 @@ class Form extends React.Component {
   clearFields() {
     console.log('hiii')
     this.setState({
-      emailAddress: '',
+      username: '',
+      emailAddress:'',
       title: '',
       description: '',
       address: '',
@@ -56,6 +58,12 @@ class Form extends React.Component {
   }
  
   //Post form submission via axios
+  handleUsername(e) {
+    this.setState({
+      username: e.target.value
+    });
+  }
+
   handleEmail(e) {
     this.setState({
       emailAddress: e.target.value
@@ -102,9 +110,9 @@ class Form extends React.Component {
     return (
       <form>
         Username:
-        <input value={this.state.username} type="text" placeholder="Username"></input>
+        <input value={this.state.username} type="text" placeholder="Username" onChange={(e) => {this.handleUsername(e)}} required></input>
         Email Address:
-        <input type="text" placeholder="Email Address" onChange={(e) => {this.handleEmail(e)}}required></input>
+        <input value={this.state.emailAddress} type="text" placeholder="Email Address" onChange={(e) => {this.handleEmail(e)}} required></input>
         Title:
         <input value={this.state.title} type="text" placeholder="Title" onChange={(e) => {this.handleTitle(e)}}required></input>
         Description:

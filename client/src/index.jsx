@@ -47,6 +47,7 @@ class App extends React.Component {
     this.setState({
       posts: data
     });
+    this.retrievePosts();
   }
   
   handleClaim(claimedPostID){
