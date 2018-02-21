@@ -28,7 +28,6 @@ class App extends React.Component {
   componentDidMount() {
     this.retrievePosts();
     this.savePosts();
-    console.log("List Items:", this.state.posts);
   }
 
   changeFeatured(listItem) {
@@ -50,7 +49,7 @@ class App extends React.Component {
     this.setState({
       posts: data
     });
-    console.log("this is state.posts: ", this.state.posts);
+    this.retrievePosts();
   }
 
 
